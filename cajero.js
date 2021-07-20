@@ -1,249 +1,179 @@
-    let nombreUsuario = prompt("cuenta de usuario");
+// let nombreUsuario = prompt("cuenta de usuario");
 
-    let Consultar_Ingresar_Retirar;
+let Consultar_Ingresar_Retirar;
 
-    let valor_ingresado;
+var nombreUsuario = document.getElementById("usuario");
 
+var password = document.getElementById("password");
 
-    let cuentas = [
+let valor_ingresado;
 
-        { nombre: "Mali", saldo: 200, password: 'helloworld' },
+let cuentas = [
+  { nombre: "Mali", saldo: 200, password: "helloworld" },
 
-        { nombre: "Gera", saldo: 290, password: 'l33t' },
+  { nombre: "Gera", saldo: 290, password: "l33t" },
 
-        { nombre: "Maui", saldo: 67, password: '123' }
-    ];
+  { nombre: "Maui", saldo: 67, password: "123" },
+];
 
+document.getElementById("enviar").addEventListener("click", function (event) {
+  event.preventDefault();
+//   Acceso(nombreUsuario);
+//   Acceso(password);
 
-    if (nombreUsuario == "Mali") {
+  nombreUsuario = Acceso(nombreUsuario);
+  password = Acceso(password);
 
-        let password = prompt("contraseña");
+  console.log(Acceso(nombreUsuario));
+  console.log(Acceso(password));
 
-        if (password == 'helloworld') {
+//   Acceso(nombreUsuario)
 
-            Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
+//   Acceso(password)
 
-        }
+  if (nombreUsuario == "Mali") {
+    // let password = prompt("contraseña");
 
-        if (Consultar_Ingresar_Retirar == "Consultar") {
-
-            document.write("saldo disponible: 200");
-
-        }
-
-        else if (Consultar_Ingresar_Retirar == "Ingresar") {
-
-            valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
-
-            let suma = valor_ingresado + cuentas[0].saldo;
-
-        while (suma < 10 || suma > 990) {
-
-            valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
-
-            suma = valor_ingresado + cuentas[0].saldo;
-
-        }
-            
-        if (suma >= 10 && suma <= 990) {
-
-            document.write(valor_ingresado + " valor ingresado <br>");
-
-            document.write(valor_ingresado + cuentas[0].saldo + " saldo total");
-
-        }
-
+    if (password == "helloworld") {
+      Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
     }
 
-        else if (Consultar_Ingresar_Retirar == "Retirar") {
+    if (Consultar_Ingresar_Retirar == "Consultar") {
+      document.write("saldo disponible: 200");
+    } else if (Consultar_Ingresar_Retirar == "Ingresar") {
+      valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
 
-        valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
+      let suma = valor_ingresado + cuentas[0].saldo;
 
-        suma = cuentas[0].saldo -valor_ingresado;
+      while (suma < 10 || suma > 990) {
+        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
 
-        while (suma < 10 || suma > 990) {
+        suma = valor_ingresado + cuentas[0].saldo;
+      }
 
-            valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+      if (suma >= 10 && suma <= 990) {
+        document.write(valor_ingresado + " valor ingresado <br>");
 
-            document.write(suma);
+        document.write(valor_ingresado + cuentas[0].saldo + " saldo total");
+      }
+    } else if (Consultar_Ingresar_Retirar == "Retirar") {
+      valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
 
-            suma = cuentas[0].saldo - valor_ingresado;
+      suma = cuentas[0].saldo - valor_ingresado;
 
-        }
+      while (suma < 10 || suma > 990) {
+        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
 
+        document.write(suma);
+
+        suma = cuentas[0].saldo - valor_ingresado;
+      }
     }
 
     if (suma >= 10 && suma <= 990) {
+      document.write(valor_ingresado + " valor ingresado <br>");
 
+      document.write(cuentas[0].saldo - valor_ingresado + " saldo total");
+    }
+  } else if (nombreUsuario == "Gera") {
+    // let password = prompt("contraseña");
+
+    if (password == "l33t") {
+      Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
+    }
+
+    if (Consultar_Ingresar_Retirar == "Consultar") {
+      document.write("saldo disponible: 290");
+    } else if (Consultar_Ingresar_Retirar == "Ingresar") {
+      valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
+
+      let suma = valor_ingresado + cuentas[0].saldo;
+
+      while (suma < 10 || suma > 990) {
+        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+
+        suma = valor_ingresado + cuentas[1].saldo;
+      }
+
+      if (suma >= 10 && suma <= 990) {
         document.write(valor_ingresado + " valor ingresado <br>");
 
-        document.write(cuentas[0].saldo - valor_ingresado + " saldo total");
+        document.write(valor_ingresado + cuentas[1].saldo + " saldo total");
+      }
+    } else if (Consultar_Ingresar_Retirar == "Retirar") {
+      valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
 
-    }
+      suma = cuentas[1].saldo - valor_ingresado;
 
-}
-    else if (nombreUsuario == "Gera") {
+      while (suma < 10 || suma > 990) {
+        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
 
-        let password = prompt("contraseña");
+        document.write(suma);
 
-        if (password == 'l33t') {
-
-            Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
-
-        }
-
-        if (Consultar_Ingresar_Retirar == "Consultar") {
-
-            document.write("saldo disponible: 290");
-
-        }
-
-        else if (Consultar_Ingresar_Retirar == "Ingresar") {
-
-            valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
-
-            let suma = valor_ingresado + cuentas[0].saldo;
-
-        while (suma < 10 || suma > 990) {
-
-            valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
-
-            suma = valor_ingresado + cuentas[1].saldo;
-
-        }
-            
-        if (suma >= 10 && suma <= 990) {
-
-            document.write(valor_ingresado + " valor ingresado <br>");
-
-            document.write(valor_ingresado + cuentas[1].saldo + " saldo total");
-
-        }
-
-    }
-
-        else if (Consultar_Ingresar_Retirar == "Retirar") {
-
-        valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
-
-        suma = cuentas[1].saldo -valor_ingresado;
-
-        while (suma < 10 || suma > 990) {
-            
-
-            valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
-
-            document.write(suma);
-
-            suma = cuentas[1].saldo - valor_ingresado;
-
-        }
-
+        suma = cuentas[1].saldo - valor_ingresado;
+      }
     }
 
     if (suma >= 10 && suma <= 990) {
+      document.write(valor_ingresado + " valor ingresado <br>");
 
+      document.write(cuentas[1].saldo - valor_ingresado + " saldo total");
+    }
+  } else if (nombreUsuario == "Maui") {
+    // let password = prompt("contraseña");
+
+    if (password == "123") {
+      Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
+    }
+
+    if (Consultar_Ingresar_Retirar == "Consultar") {
+      document.write("saldo disponible: 67");
+    } else if (Consultar_Ingresar_Retirar == "Ingresar") {
+      valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
+
+      let suma = valor_ingresado + cuentas[2].saldo;
+
+      while (suma < 10 || suma > 990) {
+        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+
+        suma = valor_ingresado + cuentas[2].saldo;
+      }
+
+      if (suma >= 10 && suma <= 990) {
         document.write(valor_ingresado + " valor ingresado <br>");
 
-        document.write(cuentas[1].saldo - valor_ingresado + " saldo total");
+        document.write(valor_ingresado + cuentas[2].saldo + " saldo total");
+      }
+    } else if (Consultar_Ingresar_Retirar == "Retirar") {
+      valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
 
-    }
+      suma = cuentas[2].saldo - valor_ingresado;
 
-}
+      while (suma < 10 || suma > 990) {
+        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
 
-    else if (nombreUsuario == "Maui") {
+        document.write(suma);
 
-        let password = prompt("contraseña");
-
-        if (password == '123') {
-
-            Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
-
-        }
-
-        if (Consultar_Ingresar_Retirar == "Consultar") {
-
-            document.write("saldo disponible: 67");
-
-        }
-
-        else if (Consultar_Ingresar_Retirar == "Ingresar") {
-
-            valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
-
-            let suma = valor_ingresado + cuentas[2].saldo;
-
-        while (suma < 10 || suma > 990) {
-
-            valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
-
-            suma = valor_ingresado + cuentas[2].saldo;
-
-        }
-            
-        if (suma >= 10 && suma <= 990) {
-
-            document.write(valor_ingresado + " valor ingresado <br>");
-
-            document.write(valor_ingresado + cuentas[2].saldo + " saldo total");
-
-        }
-
-    }
-
-        else if (Consultar_Ingresar_Retirar == "Retirar") {
-
-        valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
-
-        suma = cuentas[2].saldo -valor_ingresado;
-
-        while (suma < 10 || suma > 990) {
-
-            valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
-
-            document.write(suma);
-
-            suma = cuentas[2].saldo - valor_ingresado;
-
-        }
-
+        suma = cuentas[2].saldo - valor_ingresado;
+      }
     }
 
     if (suma >= 10 && suma <= 990) {
+      document.write(valor_ingresado + " valor ingresado <br>");
 
-        document.write(valor_ingresado + " valor ingresado <br>");
-
-        document.write(cuentas[2].saldo - valor_ingresado + " saldo total");
-
+      document.write(cuentas[2].saldo - valor_ingresado + " saldo total");
     }
-
-}
-
-else {
-
+  } else {
     document.write("Error dato no valido");
-    
-    }
+  }
 
-    // var formulario = 
+   
+});
 
-    
-    var formulario = document.getElementById('enviar').addEventListener("click", function(event) {
-        event.preventDefault()
-    });
+// alert(numeroUsuario+" "+password);
 
-    var numeroUsuario = document.getElementById('usuario')[0].value;
+function Acceso(form) {
+  let valueForm = form.value;
 
-    var password = document.getElementById('password')[0].value;
-
-    alert(numeroUsuario+" "+password);
-
-    function Acceso(form) {
-
-        let valueForm = form.value;
-
-        console.log(valueForm);
-
-    }
-
-    Acceso(numeroUsuario)
+  return valueForm;
+}
