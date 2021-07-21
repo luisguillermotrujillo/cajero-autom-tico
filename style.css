@@ -45,7 +45,7 @@ Si ya posees conocimientos de desarrollo web con html, css y javascript. Haciend
 body {
     background: #181818;
     color: #fff;
-    line-height: 1.6;
+    line-height: 3.6;
     font-family: 'Quicksand', sans-serif;
     padding: 0 1.5em;
 }
@@ -64,17 +64,8 @@ ul {
     box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
 }
 
-.contact-wrapper > * {
-    padding: 1em;
-}
-
 .contact-form {
     background: #222222;
-}
-
-.contact-form form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 
 .contact-form form label {
@@ -86,13 +77,8 @@ ul {
     padding: 1em;
 }
 
-.contact-form form .block {
-    grid-column: 1 / 3;
-}
-
 .contact-form form button,
-.contact-form form input,
-.contact-form form textarea {
+.contact-form form input {
     width: 100%;
     padding: .7em;
     border: none;

@@ -1,4 +1,9 @@
 // let nombreUsuario = prompt("cuenta de usuario");
+var ConsultarSaldo = document.getElementById("Consultar_saldo");
+
+var ingresarSaldo = document.getElementById("ingresar_saldo");
+
+var retirarSaldo = document.getElementById("retirar_saldo");
 
 let Consultar_Ingresar_Retirar;
 
@@ -8,13 +13,13 @@ var password = document.getElementById("password");
 
 let valor_ingresado;
 
-let cuentas = [
-  { nombre: "Mali", saldo: 200, password: "helloworld" },
+    let cuentas = [
+        { nombre: "Mali", saldo: 200, password: "helloworld" },
 
-  { nombre: "Gera", saldo: 290, password: "l33t" },
+        { nombre: "Gera", saldo: 290, password: "l33t" },
 
-  { nombre: "Maui", saldo: 67, password: "123" },
-];
+        { nombre: "Maui", saldo: 67, password: "123" },
+    ];
 
 document.getElementById("enviar").addEventListener("click", function (event) {
   event.preventDefault();
@@ -23,6 +28,11 @@ document.getElementById("enviar").addEventListener("click", function (event) {
 
   nombreUsuario = Acceso(nombreUsuario);
   password = Acceso(password);
+
+  ingresarSaldo = Acceso(ingresarSaldo);
+  retirarSaldo = Acceso(retirarSaldo);
+  ConsultarSaldo = Acceso(ConsultarSaldo);
+  
 
   console.log(Acceso(nombreUsuario));
   console.log(Acceso(password));
@@ -35,23 +45,29 @@ document.getElementById("enviar").addEventListener("click", function (event) {
     // let password = prompt("contraseña");
 
     if (password == "helloworld") {
-      Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
+        window.location.replace("./CajeroAutomatico.html");
+    //   Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
     }
 
     if (Consultar_Ingresar_Retirar == "Consultar") {
+
       document.write("saldo disponible: 200");
+
     } else if (Consultar_Ingresar_Retirar == "Ingresar") {
+
       valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
 
       let suma = valor_ingresado + cuentas[0].saldo;
 
       while (suma < 10 || suma > 990) {
+
         valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
 
         suma = valor_ingresado + cuentas[0].saldo;
       }
 
       if (suma >= 10 && suma <= 990) {
+        
         document.write(valor_ingresado + " valor ingresado <br>");
 
         document.write(valor_ingresado + cuentas[0].saldo + " saldo total");
@@ -79,7 +95,8 @@ document.getElementById("enviar").addEventListener("click", function (event) {
     // let password = prompt("contraseña");
 
     if (password == "l33t") {
-      Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
+        window.location.replace("./CajeroAutomatico.html");
+    //   Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
     }
 
     if (Consultar_Ingresar_Retirar == "Consultar") {
@@ -123,7 +140,8 @@ document.getElementById("enviar").addEventListener("click", function (event) {
     // let password = prompt("contraseña");
 
     if (password == "123") {
-      Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
+        window.location.replace("./CajeroAutomatico.html");
+    //   Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
     }
 
     if (Consultar_Ingresar_Retirar == "Consultar") {

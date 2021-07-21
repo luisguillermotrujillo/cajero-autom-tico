@@ -8,33 +8,37 @@
     <link rel="stylesheet" href="./cajero.css">
 </head>
 <body>
-    <header>
 
-    <h1>¿Que deseas hacer?</h1>
+    <h1 class="consultas">Bienvenido a tus cuentas</h1>
+
+    <h2>¿Qué desea realizar?</h2>
+
+    <header class="container">
 
     <p>
-        <button >
+        <button onclick="consultar()">
             Consultar saldo
         </button>
+        <input type="text" name="Consultar saldo" id="Consultar_saldo">
     </p>
 
     <p>
         <button >
             Ingresar saldo
         </button>
-        <input type="text" name="Ingresar saldo" id="ingresar saldo">
+        <input type="text" name="Ingresar saldo" id="ingresar_saldo">
     </p>
 
     <p>
         <button >
             Retirar saldo
         </button>
-        <input type="text" name="Retirar saldo" id="retirar saldo">
+        <input type="text" name="Retirar saldo" id="retirar_saldo">
     </p>
 
     </header>
 
 
-    <script src="./servicio.js"></script>
+    <script src="./cajero.js"></script>
 </body>
 </html>

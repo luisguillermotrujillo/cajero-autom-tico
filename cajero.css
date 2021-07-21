@@ -5,7 +5,35 @@
 body {
     background: #181818;
     color: #fff;
-    line-height: 1.6;
+    line-height: 3.6;
     font-family: 'Quicksand', sans-serif;
     padding: 0 1.5em;
 }
+
+button {
+    width: 350px;
+    height: 60px;
+    font-size: 1em;
+    border-radius: 10px;
+}
+
+input {
+    width: 250px;
+    height: 60px;
+    font-size: 1em;
+    border-radius: 10px;
+}
+
+.container {
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+}
+
+.consultas {
+    text-align: center;
+}
+
+header {
+    padding: 30px;
+}
+
