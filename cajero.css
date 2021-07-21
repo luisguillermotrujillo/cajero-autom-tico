@@ -5,23 +5,25 @@
 body {
     background: #181818;
     color: #fff;
-    line-height: 3.6;
+    line-height: 1.6;
     font-family: 'Quicksand', sans-serif;
     padding: 0 1.5em;
 }
 
 button {
-    width: 350px;
+    width: 450px;
     height: 60px;
-    font-size: 1em;
+    font-size: 2em;
     border-radius: 10px;
+    /* color: #B70E21; */
 }
 
 input {
-    width: 250px;
+    width: 350px;
     height: 60px;
-    font-size: 1em;
+    font-size: 2em;
     border-radius: 10px;
+    /* color: #B70E21; */
 }
 
 .container {

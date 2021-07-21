@@ -21,17 +21,13 @@ let valor_ingresado;
         { nombre: "Maui", saldo: 67, password: "123" },
     ];
 
-document.getElementById("enviar").addEventListener("click", function (event) {
+document.getElementById("Ingresar").addEventListener("click", function (event) {
   event.preventDefault();
 //   Acceso(nombreUsuario);
 //   Acceso(password);
 
   nombreUsuario = Acceso(nombreUsuario);
   password = Acceso(password);
-
-  ingresarSaldo = Acceso(ingresarSaldo);
-  retirarSaldo = Acceso(retirarSaldo);
-  ConsultarSaldo = Acceso(ConsultarSaldo);
   
 
   console.log(Acceso(nombreUsuario));
@@ -55,7 +51,14 @@ document.getElementById("enviar").addEventListener("click", function (event) {
 
     } else if (Consultar_Ingresar_Retirar == "Ingresar") {
 
-      valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
+      document.getElementById("ingresar_saldo").addEventListener("click", function (event) {
+      event.preventDefault();
+    })
+
+      // valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
+
+      valor_ingresado = ingresarSaldo.value;
+      console.log(valor_ingresado);
 
       let suma = valor_ingresado + cuentas[0].saldo;
 
