@@ -1,19 +1,23 @@
 // let nombreUsuario = prompt("cuenta de usuario");
-var ConsultarSaldo = document.getElementById("Consultar_saldo");
 
-var ingresarSaldo = document.getElementById("ingresar_saldo");
+let inputConsultarSaldo = document.getElementById("inputConsultarSaldo");
 
-var retirarSaldo = document.getElementById("retirar_saldo");
+let botonConsultar = document.getElementById("botonConsultar");
 
-let Consultar_Ingresar_Retirar;
+let ingresarSaldo = document.getElementById("inputIngresarSaldo");
 
-var nombreUsuario = document.getElementById("usuario");
+let retirarSaldo = document.getElementById("inputRetirarSaldo");
 
-var password = document.getElementById("password");
+let botonIngresar = document.getElementById("ingresar");
 
-let valor_ingresado;
+let consultar_Ingresar_Retirar;
+
+let nombreUsuario = document.getElementById("usuario");
+
+let password = document.getElementById("password");
 
     let cuentas = [
+      
         { nombre: "Mali", saldo: 200, password: "helloworld" },
 
         { nombre: "Gera", saldo: 290, password: "l33t" },
@@ -22,178 +26,248 @@ let valor_ingresado;
     ];
 
 document.getElementById("Ingresar").addEventListener("click", function (event) {
+
   event.preventDefault();
 //   Acceso(nombreUsuario);
 //   Acceso(password);
 
-  nombreUsuario = Acceso(nombreUsuario);
-  password = Acceso(password);
+  nombreUsuario = acceso(nombreUsuario);
+
+  password = acceso(password);
   
 
-  console.log(Acceso(nombreUsuario));
-  console.log(Acceso(password));
+  // console.log(Acceso(nombreUsuario));
+
+  // console.log(Acceso(password));
 
 //   Acceso(nombreUsuario)
 
 //   Acceso(password)
 
-  if (nombreUsuario == "Mali") {
+  if (nombreUsuario == "Mali" && password == "helloworld") {
+
     // let password = prompt("contraseña");
 
-    if (password == "helloworld") {
+    localStorage.setItem("nombreUsuario",nombreUsuario);
+
+    localStorage.setItem("password",password);
+
+    //if (password == "helloworld") {
+
         window.location.replace("./CajeroAutomatico.html");
+
     //   Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
-    }
 
-    if (Consultar_Ingresar_Retirar == "Consultar") {
+    //}
 
-      document.write("saldo disponible: 200");
+  //   if (Consultar_Ingresar_Retirar == "Consultar") {
 
-    } else if (Consultar_Ingresar_Retirar == "Ingresar") {
+  //     document.write("saldo disponible: 200");
 
-      document.getElementById("ingresar_saldo").addEventListener("click", function (event) {
-      event.preventDefault();
-    })
+  //   } else if (Consultar_Ingresar_Retirar == "Ingresar") {
 
-      // valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
+  //     document.getElementById("ingresar_saldo").addEventListener("click", function (event) {
 
-      valor_ingresado = ingresarSaldo.value;
-      console.log(valor_ingresado);
+  //     // event.preventDefault();
 
-      let suma = valor_ingresado + cuentas[0].saldo;
+  //   })
 
-      while (suma < 10 || suma > 990) {
+  //     // valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
 
-        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+  //     valor_ingresado = ingresarSaldo.value;
 
-        suma = valor_ingresado + cuentas[0].saldo;
-      }
+  //     console.log(valor_ingresado);
 
-      if (suma >= 10 && suma <= 990) {
+  //     let suma = valor_ingresado + cuentas[0].saldo;
+
+  //     while (suma < 10 || suma > 990) {
+
+  //       valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+
+  //       suma = valor_ingresado + cuentas[0].saldo;
+  //     }
+
+  //     if (suma >= 10 && suma <= 990) {
         
-        document.write(valor_ingresado + " valor ingresado <br>");
+  //       document.write(valor_ingresado + " valor ingresado <br>");
 
-        document.write(valor_ingresado + cuentas[0].saldo + " saldo total");
-      }
-    } else if (Consultar_Ingresar_Retirar == "Retirar") {
-      valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
+  //       document.write(valor_ingresado + cuentas[0].saldo + " saldo total");
+  //     }
 
-      suma = cuentas[0].saldo - valor_ingresado;
+  //   } 
+    
+  //   else if (Consultar_Ingresar_Retirar == "Retirar") {
 
-      while (suma < 10 || suma > 990) {
-        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+  //     valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
 
-        document.write(suma);
+  //     suma = cuentas[0].saldo - valor_ingresado;
 
-        suma = cuentas[0].saldo - valor_ingresado;
-      }
-    }
+  //     while (suma < 10 || suma > 990) {
 
-    if (suma >= 10 && suma <= 990) {
-      document.write(valor_ingresado + " valor ingresado <br>");
+  //       valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
 
-      document.write(cuentas[0].saldo - valor_ingresado + " saldo total");
-    }
-  } else if (nombreUsuario == "Gera") {
-    // let password = prompt("contraseña");
+  //       document.write(suma);
 
-    if (password == "l33t") {
-        window.location.replace("./CajeroAutomatico.html");
-    //   Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
-    }
+  //       suma = cuentas[0].saldo - valor_ingresado;
+  //     }
 
-    if (Consultar_Ingresar_Retirar == "Consultar") {
-      document.write("saldo disponible: 290");
-    } else if (Consultar_Ingresar_Retirar == "Ingresar") {
-      valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
+  //   }
 
-      let suma = valor_ingresado + cuentas[0].saldo;
+  //   if (suma >= 10 && suma <= 990) {
 
-      while (suma < 10 || suma > 990) {
-        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+  //     document.write(valor_ingresado + " valor ingresado <br>");
 
-        suma = valor_ingresado + cuentas[1].saldo;
-      }
+  //     document.write(cuentas[0].saldo - valor_ingresado + " saldo total");
+  //   }
 
-      if (suma >= 10 && suma <= 990) {
-        document.write(valor_ingresado + " valor ingresado <br>");
-
-        document.write(valor_ingresado + cuentas[1].saldo + " saldo total");
-      }
-    } else if (Consultar_Ingresar_Retirar == "Retirar") {
-      valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
-
-      suma = cuentas[1].saldo - valor_ingresado;
-
-      while (suma < 10 || suma > 990) {
-        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
-
-        document.write(suma);
-
-        suma = cuentas[1].saldo - valor_ingresado;
-      }
-    }
-
-    if (suma >= 10 && suma <= 990) {
-      document.write(valor_ingresado + " valor ingresado <br>");
-
-      document.write(cuentas[1].saldo - valor_ingresado + " saldo total");
-    }
-  } else if (nombreUsuario == "Maui") {
-    // let password = prompt("contraseña");
-
-    if (password == "123") {
-        window.location.replace("./CajeroAutomatico.html");
-    //   Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
-    }
-
-    if (Consultar_Ingresar_Retirar == "Consultar") {
-      document.write("saldo disponible: 67");
-    } else if (Consultar_Ingresar_Retirar == "Ingresar") {
-      valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
-
-      let suma = valor_ingresado + cuentas[2].saldo;
-
-      while (suma < 10 || suma > 990) {
-        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
-
-        suma = valor_ingresado + cuentas[2].saldo;
-      }
-
-      if (suma >= 10 && suma <= 990) {
-        document.write(valor_ingresado + " valor ingresado <br>");
-
-        document.write(valor_ingresado + cuentas[2].saldo + " saldo total");
-      }
-    } else if (Consultar_Ingresar_Retirar == "Retirar") {
-      valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
-
-      suma = cuentas[2].saldo - valor_ingresado;
-
-      while (suma < 10 || suma > 990) {
-        valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
-
-        document.write(suma);
-
-        suma = cuentas[2].saldo - valor_ingresado;
-      }
-    }
-
-    if (suma >= 10 && suma <= 990) {
-      document.write(valor_ingresado + " valor ingresado <br>");
-
-      document.write(cuentas[2].saldo - valor_ingresado + " saldo total");
-    }
-  } else {
-    document.write("Error dato no valido");
   }
 
-   
+  else if (nombreUsuario == "Gera" && password == "l33t") {
+
+    localStorage.setItem("nombreUsuario",nombreUsuario);
+
+    localStorage.setItem("password",password);
+
+    // let password = prompt("contraseña");
+
+    //if (password == "l33t") {
+
+        window.location.replace("./CajeroAutomatico.html");
+
+    //   Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
+
+    //}
+
+  //   if (Consultar_Ingresar_Retirar == "Consultar") {
+
+  //     document.write("saldo disponible: 290");
+
+  //   } else if (Consultar_Ingresar_Retirar == "Ingresar") {
+
+  //     valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
+
+  //     let suma = valor_ingresado + cuentas[0].saldo;
+
+  //     while (suma < 10 || suma > 990) {
+
+  //       valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+
+  //       suma = valor_ingresado + cuentas[1].saldo;
+  //     }
+
+  //     if (suma >= 10 && suma <= 990) {
+
+  //       document.write(valor_ingresado + " valor ingresado <br>");
+
+  //       document.write(valor_ingresado + cuentas[1].saldo + " saldo total");
+  //     }
+
+  //   } 
+
+  //   else if (Consultar_Ingresar_Retirar == "Retirar") {
+
+  //     valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
+
+  //     suma = cuentas[1].saldo - valor_ingresado;
+
+  //     while (suma < 10 || suma > 990) {
+
+  //       valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+
+  //       document.write(suma);
+
+  //       suma = cuentas[1].saldo - valor_ingresado;
+  //     }
+
+  //   }
+
+  //   if (suma >= 10 && suma <= 990) {
+
+  //     document.write(valor_ingresado + " valor ingresado <br>");
+
+  //     document.write(cuentas[1].saldo - valor_ingresado + " saldo total");
+  //   }
+
+  // } 
+
+  else if (nombreUsuario == "Maui" && password == "123") {
+
+    localStorage.setItem("nombreUsuario",nombreUsuario);
+
+    localStorage.setItem("password",password);
+
+    // let password = prompt("contraseña");
+
+    //if (password == "123") {
+
+        window.location.replace("./CajeroAutomatico.html");
+
+    //   Consultar_Ingresar_Retirar = prompt("Consultar  Ingresar  Retirar");
+
+    //}
+
+  //   if (Consultar_Ingresar_Retirar == "Consultar") {
+
+  //     document.write("saldo disponible: 67");
+
+  //   } else if (Consultar_Ingresar_Retirar == "Ingresar") {
+
+  //     valor_ingresado = parseFloat(prompt("¿Cuanto desea ingresar?"));
+
+  //     let suma = valor_ingresado + cuentas[2].saldo;
+
+  //     while (suma < 10 || suma > 990) {
+
+  //       valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+
+  //       suma = valor_ingresado + cuentas[2].saldo;
+  //     }
+
+  //     if (suma >= 10 && suma <= 990) {
+
+  //       document.write(valor_ingresado + " valor ingresado <br>");
+
+  //       document.write(valor_ingresado + cuentas[2].saldo + " saldo total");
+  //     }
+
+  //   }
+    
+  //   else if (Consultar_Ingresar_Retirar == "Retirar") {
+
+  //     valor_ingresado = parseFloat(prompt("¿Cuanto desea retirar?"));
+
+  //     suma = cuentas[2].saldo - valor_ingresado;
+
+  //     while (suma < 10 || suma > 990) {
+
+  //       valor_ingresado = parseFloat(prompt("Ingrese un valor correcto"));
+
+  //       document.write(suma);
+
+  //       suma = cuentas[2].saldo - valor_ingresado;
+  //     }
+
+  //   }
+
+  //   if (suma >= 10 && suma <= 990) {
+
+  //     document.write(valor_ingresado + " valor ingresado <br>");
+
+  //     document.write(cuentas[2].saldo - valor_ingresado + " saldo total");
+  //   }
+
+  // }
+  
+  else {
+
+  document.write("Error dato no valido");
+  }
+
 });
 
 // alert(numeroUsuario+" "+password);
 
-function Acceso(form) {
+function acceso(form) {
   let valueForm = form.value;
 
   return valueForm;
