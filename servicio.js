@@ -1,182 +1,224 @@
-let cuentas = [
-  { nombre: "Mali", saldo: 200, password: "helloworld" },
+  let cuentas = [
+    
+    { nombre: "Mali", saldo: 200, password: "helloworld" },
 
-  { nombre: "Gera", saldo: 290, password: "l33t" },
+    { nombre: "Gera", saldo: 290, password: "l33t" },
 
-  { nombre: "Maui", saldo: 67, password: "123" },
-];
+    { nombre: "Maui", saldo: 67, password: "123" },
+  ];
 
-let inputConsultarSaldo = document.getElementById("inputConsultarSaldo");
+  let inputConsultarSaldo = document.getElementById("inputConsultarSaldo");
 
-let inputIngresarSaldo = document.getElementById("inputIngresarSaldo");
+  let inputIngresarSaldo = document.getElementById("inputIngresarSaldo");
 
-let inputRetirarSaldo = document.getElementById("inputRetirarSaldo");
+  let inputRetirarSaldo = document.getElementById("inputRetirarSaldo");
 
-let botonConsultarSaldo = document.getElementById("botonConsultarSaldo");
+  let botonConsultarSaldo = document.getElementById("botonConsultarSaldo");
 
-let botonIngresarSaldo = document.getElementById("botonIngresarSaldo");
+  let botonIngresarSaldo = document.getElementById("botonIngresarSaldo");
 
-let botonRetirarSaldo = document.getElementById("botonRetirarSaldo");
+  let botonRetirarSaldo = document.getElementById("botonRetirarSaldo");
 
-let nuevoSaldo;
+  let valorIngresado;
 
-let valorIngresado;
+  nombreUsuario = localStorage.getItem("nombreUsuario");
 
-nombreUsuario = localStorage.getItem("nombreUsuario");
+  password = localStorage.getItem("password");
 
-password = localStorage.getItem("password");
+      //Consultar saldo de Mali
 
-//consulta de Mali
+  if (nombreUsuario == "Mali") {
 
-//consultar saldo
-
-if (nombreUsuario == "Mali") {
-  botonConsultarSaldo.addEventListener("click", function (event) {
-    // event.preventDefault();
+    botonConsultarSaldo.addEventListener("click", function (event) {
 
     inputConsultarSaldo.value = "  Tu saldo es de $ " + cuentas[0].saldo;
   });
 
-  //ingresar saldo
+      //ingresar saldo de Mali
 
-  botonIngresarSaldo.addEventListener("click", function (event) {
-    valorIngresado = parseFloat(inputIngresarSaldo.value);
+    botonIngresarSaldo.addEventListener("click", function (event) {
 
-    nuevoSaldo = valorIngresado + cuentas[0].saldo;
+      valorIngresado = parseFloat(inputIngresarSaldo.value);
 
-    while (nuevoSaldo < 10 || nuevoSaldo > 990) {
-      alert("Ingrese un valor correcto");
-      console.log(valorIngresado);
+      cuentas[2].saldo = valorIngresado + cuentas[0].saldo;
+
+      while (cuentas[2].saldo < 10 || cuentas[2].saldo > 990) {
+
+        alert("Ingrese un valor correcto");
+
+        console.log(valorIngresado);
 
       break;
+
     }
 
-    if (nuevoSaldo >= 10 && nuevoSaldo <= 990) {
-      nuevoSaldo = valorIngresado + cuentas[0].saldo;
+    if (cuentas[2].saldo >= 10 && cuentas[2].saldo <= 990) {
+
+      cuentas[2].saldo = valorIngresado + cuentas[0].saldo;
 
       inputIngresarSaldo.value =
-        "  ingreso $: " + valorIngresado + " saldo $: " + nuevoSaldo;
+        "  ingreso $: " + valorIngresado + " saldo $: " + cuentas[2].saldo;
+
     }
+
   });
 
-  //retirar saldo
+      //retirar saldo de Mali
 
-  botonRetirarSaldo.addEventListener("click", function (event) {
-    valorIngresado = parseFloat(inputRetirarSaldo.value);
+    botonRetirarSaldo.addEventListener("click", function (event) {
 
-    nuevoSaldo = cuentas[0].saldo - valorIngresado;
+      valorIngresado = parseFloat(inputRetirarSaldo.value);
 
-    while (nuevoSaldo < 10 || nuevoSaldo > 990) {
-      alert("Ingrese un valor correcto");
+      cuentas[2].saldo = cuentas[0].saldo - valorIngresado;
+
+      while (cuentas[2].saldo < 10 || cuentas[2].saldo > 990) {
+
+        alert("Ingrese un valor correcto");
 
       break;
+
     }
 
-    if (nuevoSaldo >= 10 && nuevoSaldo <= 990) {
-      nuevoSaldo = cuentas[0].saldo - valorIngresado;
+    if (cuentas[2].saldo >= 10 && cuentas[2].saldo <= 990) {
+
+      cuentas[2].saldo = cuentas[0].saldo - valorIngresado;
 
       inputRetirarSaldo.value =
-        "  Retiro $: " + valorIngresado + " saldo $: " + nuevoSaldo;
-    }
+        "  Retiro $: " + valorIngresado + " saldo $: " + cuentas[2].saldo;
+
+      }
+
+    });
+
+  }
+
+      //consulta saldo de Gera
+
+    else if (nombreUsuario == "Gera") {
+
+      botonConsultarSaldo.addEventListener("click", function (event) {
+
+        inputConsultarSaldo.value = "  Tu saldo es de $ " + cuentas[1].saldo;
+
   });
-}
 
-//consulta de Gera
-else if (nombreUsuario == "Gera") {
-  botonConsultarSaldo.addEventListener("click", function (event) {
-    inputConsultarSaldo.value = "  Tu saldo es de $ " + cuentas[1].saldo;
-  });
+      //ingresar saldo de Gera
 
-  //ingresar saldo
+    botonIngresarSaldo.addEventListener("click", function (event) {
 
-  botonIngresarSaldo.addEventListener("click", function (event) {
-    valorIngresado = parseFloat(inputIngresarSaldo.value);
+      valorIngresado = parseFloat(inputIngresarSaldo.value);
 
-    nuevoSaldo = valorIngresado + cuentas[1].saldo;
+      cuentas[2].saldo = valorIngresado + cuentas[1].saldo;
 
-    while (nuevoSaldo < 10 || nuevoSaldo > 990) {
-      alert("Ingrese un valor correcto");
-      console.log(valorIngresado);
+      while (cuentas[2].saldo < 10 || cuentas[2].saldo > 990) {
+
+        alert("Ingrese un valor correcto");
+
+        console.log(valorIngresado);
 
       break;
+
     }
 
-    if (nuevoSaldo >= 10 && nuevoSaldo <= 990) {
-      nuevoSaldo = valorIngresado + cuentas[1].saldo;
+    if (cuentas[2].saldo >= 10 && cuentas[2].saldo <= 990) {
+
+      cuentas[2].saldo = valorIngresado + cuentas[1].saldo;
 
       inputIngresarSaldo.value =
-        "  ingreso $: " + valorIngresado + " saldo $: " + nuevoSaldo;
+        "  ingreso $: " + valorIngresado + " saldo $: " + cuentas[2].saldo;
     }
+
   });
 
-  //retirar saldo
+      //retirar saldo de Gera
 
-  botonRetirarSaldo.addEventListener("click", function (event) {
+    botonRetirarSaldo.addEventListener("click", function (event) {
+
     valorIngresado = parseFloat(inputRetirarSaldo.value);
 
-    nuevoSaldo = cuentas[1].saldo - valorIngresado;
+    cuentas[2].saldo = cuentas[1].saldo - valorIngresado;
 
-    while (nuevoSaldo < 10 || nuevoSaldo > 990) {
+    while (cuentas[2].saldo < 10 || cuentas[2].saldo > 990) {
+
       alert("Ingrese un valor correcto");
 
       break;
+
     }
 
-    if (nuevoSaldo >= 10 && nuevoSaldo <= 990) {
-      nuevoSaldo = cuentas[1].saldo - valorIngresado;
+    if (cuentas[2].saldo >= 10 && cuentas[2].saldo <= 990) {
+
+      cuentas[2].saldo = cuentas[1].saldo - valorIngresado;
 
       inputRetirarSaldo.value =
-        "  Retiro $: " + valorIngresado + " saldo $: " + nuevoSaldo;
-    }
+        "  Retiro $: " + valorIngresado + " saldo $: " + cuentas[2].saldo;
+
+      }
+
+    });
+
+  }
+
+      //consulta saldo de Maui
+
+    else if (nombreUsuario == "Maui") {
+
+      botonConsultarSaldo.addEventListener("click", function (event) {
+
+        inputConsultarSaldo.value = "  Tu saldo es de $ " + cuentas[2].saldo;
+
   });
-}
 
-//consulta de Maui
-else if (nombreUsuario == "Maui") {
-  botonConsultarSaldo.addEventListener("click", function (event) {
-    inputConsultarSaldo.value = "  Tu saldo es de $ " + cuentas[2].saldo;
-  });
+      //ingresar saldo de Maui
 
-  //ingresar saldo
+    botonIngresarSaldo.addEventListener("click", function (event) {
 
-  botonIngresarSaldo.addEventListener("click", function (event) {
-    valorIngresado = parseFloat(inputIngresarSaldo.value);
+      valorIngresado = parseFloat(inputIngresarSaldo.value);
 
-    nuevoSaldo = valorIngresado + cuentas[2].saldo;
+      cuentas[2].saldo = valorIngresado + cuentas[2].saldo;
 
-    while (nuevoSaldo < 10 || nuevoSaldo > 990) {
-      alert("Ingrese un valor correcto");
-      console.log(valorIngresado);
+      while (cuentas[2].saldo < 10 || cuentas[2].saldo > 990) {
+
+        alert("Ingrese un valor correcto");
+
+        console.log(valorIngresado);
 
       break;
+
     }
 
-    if (nuevoSaldo >= 10 && nuevoSaldo <= 990) {
-      nuevoSaldo = valorIngresado + cuentas[2].saldo;
+    if (cuentas[2].saldo >= 10 && cuentas[2].saldo <= 990) {
 
       inputIngresarSaldo.value =
-        "  ingreso $: " + valorIngresado + " saldo $: " + nuevoSaldo;
+        "  ingreso $: " + valorIngresado + " saldo $: " + cuentas[2].saldo;
+
     }
+
   });
 
-  //retirar saldo
+      //retirar saldo de Maui
 
-  botonRetirarSaldo.addEventListener("click", function (event) {
-    valorIngresado = parseFloat(inputRetirarSaldo.value);
+    botonRetirarSaldo.addEventListener("click", function (event) {
 
-    nuevoSaldo = cuentas[2].saldo - valorIngresado;
+      valorIngresado = parseFloat(inputRetirarSaldo.value);
 
-    while (nuevoSaldo < 10 || nuevoSaldo > 990) {
-      alert("Ingrese un valor correcto");
+      cuentas[2].saldo = cuentas[2].saldo - valorIngresado;
+
+      while (cuentas[2].saldo < 10 || cuentas[2].saldo > 990) {
+
+        alert("Ingrese un valor correcto");
 
       break;
+
     }
 
-    if (nuevoSaldo >= 10 && nuevoSaldo <= 990) {
-      nuevoSaldo = cuentas[2].saldo - valorIngresado;
+    if (cuentas[2].saldo >= 10 && cuentas[2].saldo <= 990) {
 
       inputRetirarSaldo.value =
-        "  Retiro $: " + valorIngresado + " saldo $: " + nuevoSaldo;
+        "  Retiro $: " + valorIngresado + " saldo $: " + cuentas[2].saldo;
+        
     }
+
   });
+
 }
